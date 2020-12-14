@@ -1,0 +1,10 @@
+[
+  { "op": "Fork",
+    "args": ["\\n", "\\n", false] },
+  { "op": "From Base64",
+    "args": ["A-Za-z0-9+/=", true] },
+  { "op": "Raw Inflate",
+    "args": [0, 0, "Adaptive", false, false] },
+  { "op": "Decode text",
+    "args": ["UTF-8 (65001)"] }
+]
