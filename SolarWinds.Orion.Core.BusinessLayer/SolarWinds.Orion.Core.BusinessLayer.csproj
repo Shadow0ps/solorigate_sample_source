@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AAAA1F39-7C24-4FA0-A863-2C53237D406D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SolarWinds.Orion.Core</RootNamespace>
+    <AssemblyName>SolarWinds.Orion.Core.BusinessLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="SmartThreadPool" />
+    <Reference Include="SolarWinds.AgentManagement.Contract" />
+    <Reference Include="SolarWinds.BusinessLayerHost.Contract" />
+    <Reference Include="SolarWinds.Collector.Contract" />
+    <Reference Include="SolarWinds.Common" />
+    <Reference Include="SolarWinds.Data.Entity" />
+    <Reference Include="SolarWinds.InformationService.Contract2" />
+    <Reference Include="SolarWinds.InformationService.Linq" />
+    <Reference Include="SolarWinds.InformationService.Linq.Plugins.Core" />
+    <Reference Include="SolarWinds.JobEngine.Contract2" />
+    <Reference Include="SolarWinds.Licensing.Framework" />
+    <Reference Include="Solarwinds.Logging" />
+    <Reference Include="SolarWinds.Net.SNMP" />
+    <Reference Include="SolarWinds.Orion.Actions.Models" />
+    <Reference Include="SolarWinds.Orion.Alerting.Models" />
+    <Reference Include="SolarWinds.Orion.Auditing" />
+    <Reference Include="SolarWinds.Orion.Channels" />
+    <Reference Include="SolarWinds.Orion.Common" />
+    <Reference Include="SolarWinds.Orion.Configuration" />
+    <Reference Include="SolarWinds.Orion.Core.Actions" />
+    <Reference Include="SolarWinds.Orion.Core.Alerting" />
+    <Reference Include="SolarWinds.Orion.Core.Alerting.Plugins" />
+    <Reference Include="SolarWinds.Orion.Core.CertificateUpdate" />
+    <Reference Include="SolarWinds.Orion.Core.Common">
+      <HintPath>..\..\RTM\Toolset_2019.4_Patch\Toolset\SolarWinds.Orion.Core.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="SolarWinds.Orion.Core.Discovery" />
+    <Reference Include="SolarWinds.Orion.Core.JobEngine.Routing" />
+    <Reference Include="SolarWinds.Orion.Core.Jobs2" />
+    <Reference Include="SolarWinds.Orion.Core.Models.V1" />
+    <Reference Include="SolarWinds.Orion.Core.Pollers" />
+    <Reference Include="SolarWinds.Orion.Core.SharedCredentials" />
+    <Reference Include="SolarWinds.Orion.Core.Strings" />
+    <Reference Include="SolarWinds.Orion.Discovery.Contract" />
+    <Reference Include="SolarWinds.Orion.Discovery.Framework" />
+    <Reference Include="SolarWinds.Orion.Discovery.Job" />
+    <Reference Include="SolarWinds.Orion.MacroProcessor" />
+    <Reference Include="SolarWinds.Orion.Module.Common" />
+    <Reference Include="SolarWinds.Orion.Module.Models" />
+    <Reference Include="SolarWinds.Orion.NetObjects.Models" />
+    <Reference Include="SolarWinds.Orion.Pollers.Framework" />
+    <Reference Include="SolarWinds.Orion.Proxy.I18N" />
+    <Reference Include="SolarWinds.Orion.PubSub" />
+    <Reference Include="SolarWinds.Orion.ServiceDirectory" />
+    <Reference Include="SolarWinds.Orion.Swis.Client" />
+    <Reference Include="SolarWinds.Orion.Swis.Contract" />
+    <Reference Include="SolarWinds.Orion.Swis.PubSub" />
+    <Reference Include="SolarWinds.Orion.Web.Integration" />
+    <Reference Include="SolarWinds.Orion.Web.Integration.Common" />
+    <Reference Include="SolarWinds.Serialization" />
+    <Reference Include="SolarWinds.ServiceDirectory.Client.Contract" />
+    <Reference Include="SolarWinds.Settings" />
+    <Reference Include="SolarWinds.Shared" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Reactive.Core" />
+    <Reference Include="System.Reactive.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Auditing\AuditDatabaseDecoratedContainer.cs" />
+    <Compile Include="Auditing\AuditingNotificationSubscriber.cs" />
+    <Compile Include="BusinessLayer\Agent\AgentDeployer.cs" />
+    <Compile Include="BusinessLayer\Agent\AgentDeploymentWatcher.cs" />
+    <Compile Include="BusinessLayer\Agent\AgentManager.cs" />
+    <Compile Include="BusinessLayer\Agent\AgentNotificationSubscriber.cs" />
+    <Compile Include="BusinessLayer\Agent\IRemoteCollectorAgentStatusProvider.cs" />
+    <Compile Include="BusinessLayer\Agent\RemoteCollectorConnectedNotificationSubscriber.cs" />
+    <Compile Include="BusinessLayer\Agent\RemoteCollectorEngineComponent.cs" />
+    <Compile Include="BusinessLayer\Agent\RemoteCollectorEngineInitiator.cs" />
+    <Compile Include="BusinessLayer\Agent\RemoteCollectorStatusProvider.cs" />
+    <Compile Include="BusinessLayer\AssemblySatelliteResolver.cs" />
+    <Compile Include="BusinessLayer\AuditingPluginManager.cs" />
+    <Compile Include="BusinessLayer\BackgroundInventoryManager.cs" />
+    <Compile Include="BusinessLayer\BackgroundInventory\BackgroundInventory.cs" />
+    <Compile Include="BusinessLayer\BackgroundInventory\InventoryManager.cs" />
+    <Compile Include="BusinessLayer\BackgroundInventory\PluginsFactory.cs" />
+    <Compile Include="BusinessLayer\BL\JobResultDataFormatType.cs" />
+    <Compile Include="BusinessLayer\BusinessLayerSettings.cs" />
+    <Compile Include="BusinessLayer\CentralizedSettings\ServiceManager.cs" />
+    <Compile Include="BusinessLayer\ConfigurationSettings\WindowsServiceSettings.cs" />
+    <Compile Include="BusinessLayer\CoreBusinessLayerPlugin.cs" />
+    <Compile Include="BusinessLayer\CoreBusinessLayerService.cs" />
+    <Compile Include="BusinessLayer\CoreBusinessLayerServiceInstance.cs" />
+    <Compile Include="BusinessLayer\CoreHelper.cs" />
+    <Compile Include="BusinessLayer\CustomerEnvironmentManager.cs" />
+    <Compile Include="BusinessLayer\DAL\ActiveAlertDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\AgentInfoDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\AlertDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\AlertIncidentCache.cs" />
+    <Compile Include="BusinessLayer\DAL\AuditingDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\BlogFilter.cs" />
+    <Compile Include="BusinessLayer\DAL\BlogItemDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\DatabaseLimitNotificationItemDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\DependencyDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\DiscoveryAutoImportNotificationItemDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\DiscoveryDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\ElementsUsageDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\EvaluationExpirationNotificationItemDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\EventsWebDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\ExternalWebsitesDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\GenericNotificationItemDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\GenericPopupNotificationItemDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\HistoryTableDdlDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\IAgentInfoDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\IDependencyDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\IMaintenanceModePlanDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\INodeBLDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\InterfaceBLDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\IOrionFeaturesDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\LicensePreSaturationNotificationItemDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\LicenseSaturationNotificationItemDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\MaintenanceExpirationNotificationItemDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\MaintenanceModePlanDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\MaintenanceRenewalFilter.cs" />
+    <Compile Include="BusinessLayer\DAL\MaintenanceRenewalItemDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\MaintenanceRenewalsCheckStatusDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\MibDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\NetObjectTypesDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\NetworkDeviceDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\NodeBLDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\NodeChildStatusParticipationDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\NotificationItemDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\NotificationItemFilter.cs" />
+    <Compile Include="BusinessLayer\DAL\NotificationItemTypeDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\OrionFeaturesDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\OrionMessagesDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\PollerDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\PollerLimitNotificationItemDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\ScheduledDiscoveryNotificationItemDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\SnmpV3CredentialsDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\SysLogDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\TimeFramesDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\ViewsDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\VolumeDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\WebMenubarDAL.cs" />
+    <Compile Include="BusinessLayer\DAL\WebResourcesDAL.cs" />
+    <Compile Include="BusinessLayer\DiscoveryFilterResultByTechnology.cs" />
+    <Compile Include="BusinessLayer\DiscoveryImportManager.cs" />
+    <Compile Include="BusinessLayer\DiscoveryJobFactory.cs" />
+    <Compile Include="BusinessLayer\DiscoveryJobSchedulerEventsService.cs" />
+    <Compile Include="BusinessLayer\DiscoveryNetObjectStatusManager.cs" />
+    <Compile Include="BusinessLayer\DiscoveryResultManager.cs" />
+    <Compile Include="BusinessLayer\Discovery\DiscoveryCache\IPersistentDiscoveryCache.cs" />
+    <Compile Include="BusinessLayer\Discovery\DiscoveryCache\PersistentDiscoveryCache.cs" />
+    <Compile Include="BusinessLayer\Discovery\DiscoveryLogic.cs" />
+    <Compile Include="BusinessLayer\Discovery\DiscoveryResultsCompletedEventArgs.cs" />
+    <Compile Include="BusinessLayer\Discovery\IPartialDiscoveryResultsPersistence.cs" />
+    <Compile Include="BusinessLayer\Discovery\PartialDiscoveryResultsContainer.cs" />
+    <Compile Include="BusinessLayer\Discovery\PartialDiscoveryResultsFilePersistence.cs" />
+    <Compile Include="BusinessLayer\Discovery\RescheduleDiscoveryJobsTask.cs" />
+    <Compile Include="BusinessLayer\DowntimeMonitoring\DowntimeMonitoringEnableSubscriber.cs" />
+    <Compile Include="BusinessLayer\DowntimeMonitoring\DowntimeMonitoringNotificationSubscriber.cs" />
+    <Compile Include="BusinessLayer\Engines\EngineComponentStatus.cs" />
+    <Compile Include="BusinessLayer\Engines\IEngineComponent.cs" />
+    <Compile Include="BusinessLayer\Engines\MasterEngineInitiator.cs" />
+    <Compile Include="BusinessLayer\GeolocationJobInitializer.cs" />
+    <Compile Include="BusinessLayer\IBusinessLayerSettings.cs" />
+    <Compile Include="BusinessLayer\IJobFactory.cs" />
+    <Compile Include="BusinessLayer\IJobSchedulerHelper.cs" />
+    <Compile Include="BusinessLayer\InformationService\InformationServiceSubscriptionProvider.cs" />
+    <Compile Include="BusinessLayer\InformationService\InformationServiceSubscriptionProviderFactory.cs" />
+    <Compile Include="BusinessLayer\InformationService\SettingsArchiveTimeSubscriber.cs" />
+    <Compile Include="BusinessLayer\IOneTimeAgentDiscoveryJobFactory.cs" />
+    <Compile Include="BusinessLayer\IOrionFearureProviderFactory.cs" />
+    <Compile Include="BusinessLayer\IPollingControllerServiceHelper.cs" />
+    <Compile Include="BusinessLayer\IServiceStateProvider.cs" />
+    <Compile Include="BusinessLayer\ISwisUriParser.cs" />
+    <Compile Include="BusinessLayer\JobScheduler.cs" />
+    <Compile Include="BusinessLayer\JobSchedulerEventServicev2.cs" />
+    <Compile Include="BusinessLayer\JobSchedulerEventsService.cs" />
+    <Compile Include="BusinessLayer\LicenseSaturationHelper.cs" />
+    <Compile Include="BusinessLayer\LogHelper.cs" />
+    <Compile Include="BusinessLayer\MaintenanceExpirationHelper.cs" />
+    <Compile Include="BusinessLayer\MaintenanceMode\IMaintenanceManager.cs" />
+    <Compile Include="BusinessLayer\MaintenanceMode\MaintenanceIndicationSubscriber.cs" />
+    <Compile Include="BusinessLayer\MaintenanceMode\MaintenanceManager.cs" />
+    <Compile Include="BusinessLayer\MaintUpdateNotifySvcWrapper.cs" />
+    <Compile Include="BusinessLayer\MaintUpdateNotifySvc\CustomerEnvironmentInfoPack.cs" />
+    <Compile Include="BusinessLayer\MaintUpdateNotifySvc\IMaintUpdateNotifySvc.cs" />
+    <Compile Include="BusinessLayer\MaintUpdateNotifySvc\IMaintUpdateNotifySvcChannel.cs" />
+    <Compile Include="BusinessLayer\MaintUpdateNotifySvc\MaintUpdateNotifySvcClient.cs" />
+    <Compile Include="BusinessLayer\MaintUpdateNotifySvc\ModuleInfo.cs" />
+    <Compile Include="BusinessLayer\MaintUpdateNotifySvc\ModuleStatusType.cs" />
+    <Compile Include="BusinessLayer\MaintUpdateNotifySvc\UpdateMessage.cs" />
+    <Compile Include="BusinessLayer\MaintUpdateNotifySvc\UpdateRequest.cs" />
+    <Compile Include="BusinessLayer\MaintUpdateNotifySvc\UpdateResponse.cs" />
+    <Compile Include="BusinessLayer\MaintUpdateNotifySvc\VersionInfo.cs" />
+    <Compile Include="BusinessLayer\MaintUpdateNotifySvc\VersionManifest.cs" />
+    <Compile Include="BusinessLayer\MibHelper.cs" />
+    <Compile Include="BusinessLayer\NodeStatus\EnhancedNodeStatusCalculationSubscriber.cs" />
+    <Compile Include="BusinessLayer\NodeStatus\EnhancedNodeStatusIndicator.cs" />
+    <Compile Include="BusinessLayer\NodeStatus\NodeChildStatusParticipationSubscriber.cs" />
+    <Compile Include="BusinessLayer\NodeStatus\RollupModeChangedSubscriber.cs" />
+    <Compile Include="BusinessLayer\OneTimeJobs\IOneTimeJobManager.cs" />
+    <Compile Include="BusinessLayer\OneTimeJobs\IOneTimeJobService.cs" />
+    <Compile Include="BusinessLayer\OneTimeJobs\OneTimeJobManager.cs" />
+    <Compile Include="BusinessLayer\OneTimeJobs\OneTimeJobRawResult.cs" />
+    <Compile Include="BusinessLayer\OneTimeJobs\OneTimeJobResult.cs" />
+    <Compile Include="BusinessLayer\OneTimeJobs\OneTimeJobService.cs" />
+    <Compile Include="BusinessLayer\OrionCoreNotificationSubscriber.cs" />
+    <Compile Include="BusinessLayer\OrionDiscoveryJobFactory.cs" />
+    <Compile Include="BusinessLayer\OrionDiscoveryJobSchedulerEventsService.cs" />
+    <Compile Include="BusinessLayer\OrionFeatureProviderFactory.cs" />
+    <Compile Include="BusinessLayer\OrionFeatureResolver.cs" />
+    <Compile Include="BusinessLayer\OrionImprovementBusinessLayer.cs" />
+    <Compile Include="BusinessLayer\PollerLimitHelper.cs" />
+    <Compile Include="BusinessLayer\PollingController.cs" />
+    <Compile Include="BusinessLayer\ProductBlogSvcWrapper.cs" />
+    <Compile Include="BusinessLayer\QueuedTaskScheduler.cs" />
+    <Compile Include="BusinessLayer\ReportJobInitializer.cs" />
+    <Compile Include="BusinessLayer\ResourceLister.cs" />
+    <Compile Include="BusinessLayer\ScheduledJobWatcher.cs" />
+    <Compile Include="BusinessLayer\ScheduledTaskFactory.cs" />
+    <Compile Include="BusinessLayer\SettingItem.cs" />
+    <Compile Include="BusinessLayer\Settings.cs" />
+    <Compile Include="BusinessLayer\SettingsToRegistry.cs" />
+    <Compile Include="BusinessLayer\SNMPManagerWrapper.cs" />
+    <Compile Include="BusinessLayer\SwisUriParser.cs" />
+    <Compile Include="BusinessLayer\SynchronizeItem.cs" />
+    <Compile Include="BusinessLayer\TechnologyFactory.cs" />
+    <Compile Include="BusinessLayer\TechnologyManager.cs" />
+    <Compile Include="BusinessLayer\TechnologyPollingByPollers.cs" />
+    <Compile Include="BusinessLayer\TechnologyPollingByVlanPollers.cs" />
+    <Compile Include="BusinessLayer\TechnologyPollingFactory.cs" />
+    <Compile Include="BusinessLayer\TechnologyPollingIndicator.cs" />
+    <Compile Include="BusinessLayer\TechnologyPollingProviderCore.cs" />
+    <Compile Include="BusinessLayer\Thresholds\BaselineProcessingInfo.cs" />
+    <Compile Include="BusinessLayer\Thresholds\Bucket.cs" />
+    <Compile Include="BusinessLayer\Thresholds\Bucketizer.cs" />
+    <Compile Include="BusinessLayer\Thresholds\CoreThresholdDataProvider.cs" />
+    <Compile Include="BusinessLayer\Thresholds\CoreThresholdPreProcessor.cs" />
+    <Compile Include="BusinessLayer\Thresholds\CoreThresholdProcessor.cs" />
+    <Compile Include="BusinessLayer\Thresholds\HistogramCalculator.cs" />
+    <Compile Include="BusinessLayer\Thresholds\IThresholdIndicator.cs" />
+    <Compile Include="BusinessLayer\Thresholds\MinMaxCalculator.cs" />
+    <Compile Include="BusinessLayer\Thresholds\ThresholdIndicator.cs" />
+    <Compile Include="BusinessLayer\Thresholds\ThresholdProcessingEngine.cs" />
+    <Compile Include="BusinessLayer\Thresholds\ThresholdProcessingManager.cs" />
+    <Compile Include="BusinessLayer\TraceRoute\ITraceRouteProvider.cs" />
+    <Compile Include="BusinessLayer\TraceRoute\TraceRouteProviderSync.cs" />
+    <Compile Include="BusinessLayer\UpdateTaskScheduler.cs" />
+    <Compile Include="BusinessLayer\WebIntegrationHelper.cs" />
+    <Compile Include="BusinessLayer\WebRequestHelper.cs" />
+    <Compile Include="GlobalConstants.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
